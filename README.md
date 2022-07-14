@@ -7,7 +7,7 @@ Collects data from a drive's SMART attributes.
 
 smart_stats module requires smartctl, a part of smartmontools: [https://www.smartmontools.org/](https://www.smartmontools.org/)
 
-Download the latest version of smartmontools for macOS from the official repository here: [https://sourceforge.net/projects/smartmontools/files/latest/download?source=files](https://sourceforge.net/projects/smartmontools/files/latest/download?source=files)
+Download the latest version of smartmontools for macOS from the official repository here: [https://github.com/smartmontools/smartmontools/releases](https://github.com/smartmontools/smartmontools/releases)
 
 **Munki:**
 The downloaded smartmontools package has a name that conflicts with Munki's versioning. To avoid an error, import the downloaded DMG file directly instead of the PKG it contains.
