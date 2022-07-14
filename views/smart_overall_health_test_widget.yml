@@ -1,0 +1,20 @@
+type: button
+widget_id: smart-overall-health-test
+api_url: /module/smart_stats/get_smart_stats
+i18n_title: smart_stats.reporttitle
+icon: fa-user-md
+listing_link: /show/listing/smart_stats/smart_stats
+i18n_empty_result: no_data
+buttons:
+  - label: failed
+    i18n_label: smart_stats.failed
+    class: btn-danger
+    search_component: failed
+  - label: unknown
+    i18n_label: smart_stats.unknown
+    class: btn-warning
+    search_component: unknown
+  - label: passed
+    i18n_label: smart_stats.passed
+    class: btn-success
+    search_component: passed

@@ -8,20 +8,20 @@
  **/
 class Smart_stats_controller extends Module_controller
 {
-	function __construct()
-	{
-		$this->module_path = dirname(__FILE__);
-	}
+    function __construct()
+    {
+        $this->module_path = dirname(__FILE__);
+    }
 
-	/**
-	 * Default method
-	 *
-	 * @author AvB
-	 **/
-	function index()
-	{
-		echo "You've loaded the smart_stats module!";
-	}
+    /**
+    * Default method
+    *
+    * @author AvB
+    **/
+    function index()
+    {
+        echo "You've loaded the smart_stats module!";
+    }
     
     /**
     * Get data for SSD Service Program widget
@@ -33,23 +33,14 @@ class Smart_stats_controller extends Module_controller
     **/
     public function ssd_service_check()
     {
-        $obj = new View();
-        if (! $this->authorized()) {
-            $obj->view('json', array('msg' => 'Not authorized'));
-            return;
-        }
-  
-        $queryobj = new Smart_stats_model();
         $sql = "SELECT COUNT(
                             CASE WHEN `firmware_version` = 'CXS4JA0Q' AND (SUBSTRING(`serial_number`, 4, 1) = 'V' 
                             OR SUBSTRING(`serial_number`, 4, 1) = 'W') 
                             THEN 1 END) AS 'unfixed',
-
                         COUNT(
                             CASE WHEN `firmware_version` = 'CXS4LA0Q' AND (SUBSTRING(`serial_number`, 4, 1) = 'V'
                             OR SUBSTRING(`serial_number`, 4, 1) = 'W')
                             THEN 1 END) AS 'fixed',
-
                         COUNT(
                             CASE WHEN (`firmware_version` = 'CXS4JA0Q' OR `firmware_version` = 'CXS4LA0Q') AND SUBSTRING(`serial_number`, 4, 1) <> 'V'
                             AND SUBSTRING(`serial_number`, 4, 1) <> 'W'
@@ -60,9 +51,39 @@ class Smart_stats_controller extends Module_controller
                         WHERE `model_number` = 'APPLE SSD SM0256L'
                         ".get_machine_group_filter('AND');
 
-        $obj->view('json', array('msg' => current($queryobj->query($sql))));
+        $out = [];
+        $queryobj = new Smart_stats_model();
+        foreach($queryobj->query($sql)[0] as $label => $value){
+                $out[] = ['label' => $label, 'count' => $value];
+        }
+
+        jsonView($out);
     }
     
+     /**
+     * Get SMART pass/fail/unknown for widget
+     *
+     * @return void
+     * @author tuxudo
+     **/
+    public function get_smart_stats()
+    {
+        $sql = "SELECT COUNT(CASE WHEN overall_health='PASSED' THEN 1 END) AS passed,
+                        COUNT(CASE WHEN overall_health='UNKNOWN!' THEN 1 END) AS unknown,
+                        COUNT(CASE WHEN overall_health='FAILED!' THEN 1 END) AS failed
+                        FROM smart_stats
+                        LEFT JOIN reportdata USING(serial_number)
+                        ".get_machine_group_filter();
+
+        $out = [];
+        $queryobj = new Smart_stats_model();
+        foreach($queryobj->query($sql)[0] as $label => $value){
+                $out[] = ['label' => $label, 'count' => $value];
+        }
+
+        jsonView($out);
+    }
+
     /**
      * Retrieve data in json format for client tab
      *
@@ -70,18 +91,14 @@ class Smart_stats_controller extends Module_controller
      * @author tuxudo
      **/
     public function get_client_tab_data($serial_number = '')
-    {        
-        $obj = new View();
+    {
+        // Remove non-serial number characters
+        $serial_number = preg_replace("/[^A-Za-z0-9_\-]]/", '', $serial_number);
 
-        if (! $this->authorized()) {
-            $obj->view('json', array('msg' => 'Not authorized'));
-            return;
-        }
-
-        $queryobj = new Smart_stats_model();
-        
         $sql = "SELECT * FROM smart_stats WHERE serial_number = '$serial_number' ORDER BY disk_number";
-        
+
+        $obj = new View();
+        $queryobj = new Smart_stats_model();
         $smart_stats_tab = $queryobj->query($sql);
 
         // Add the temperature type to the object for the client tab
@@ -92,37 +109,5 @@ class Smart_stats_controller extends Module_controller
         }
         
         $obj->view('json', array('msg' => current(array('msg' => $smart_stats_tab)))); 
-    }
-
-    public function get_smart_stats()
-    {
-        $obj = new View();
-
-        if (! $this->authorized()) {
-            $obj->view('json', array('msg' => array('error' => 'Not authenticated')));
-            return;
-        }
-        
-        $smart_stats_report = new Smart_stats_model;
-        $obj->view('json', array('msg' =>$smart_stats_report->getSmartStats()));
-    }
-
-
-	/**
-     * Retrieve data in json format
-     *
-     **/
-    function get_data($serial_number = '')
-    {
-        $obj = new View();
-
-        if( ! $this->authorized())
-        {
-            $obj->view('json', array('msg' => 'Not authorized'));
-            return;
-        }
-
-        $smart_stats = new Smart_stats_model($serial_number);
-        $obj->view('json', array('msg' => $smart_stats->rs));
     }
 } // END class Smart_stats_controller

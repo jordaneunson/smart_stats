@@ -1,0 +1,18 @@
+client_tabs:
+    smart_stats-tab:
+        view: smart_stats_tab
+        i18n: smart_stats.clienttabtitle
+        badge: smart_stats-cnt
+listings:
+    smart_stats:
+        view: smart_stats_listing
+        i18n: smart_stats.clienttabtitle
+reports:
+    smart_report:
+        view: smart_report
+        i18n: smart_stats.reporttitle
+widgets:
+    smart_overall_health_test:
+        view: smart_overall_health_test_widget
+    ssd_service_program:
+        view: ssd_service_program_widget
