@@ -1,0 +1,19 @@
+type: button
+widget_id: ssd_service_program-widget
+api_url: /module/smart_stats/ssd_service_check
+i18n_title: smart_stats.ssd_service_program
+icon: fa-user-md
+listing_link: /show/listing/smart_stats/smart_stats
+i18n_empty_result: no_data
+buttons:
+  - label: unfixed
+    i18n_label: smart_stats.unfixed
+    class: btn-danger
+    search_component: CXS4JA0Q
+  - label: fixed
+    i18n_label: smart_stats.fixed
+    class: btn-success
+    search_component: CXS4LA0Q
+  - label: not_affected
+    i18n_label: smart_stats.not_affected
+    class: btn-info

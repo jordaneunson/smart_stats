@@ -4,7 +4,6 @@
 CTL="${BASEURL}index.php?/module/smart_stats/"
 
 # Get the script in the proper directory
-
 "${CURL[@]}" "${CTL}get_script/smart_stats" -o "${MUNKIPATH}preflight.d/smart_stats"
 
 if [ "${?}" != 0 ]

@@ -6,7 +6,7 @@ class Smart_stats_model extends \Model {
     
     function __construct($serial='')
     {
-        parent::__construct('id', 'smart_stats'); //primary key, tablename
+        parent::__construct('id', 'smart_stats'); // Primary key, tablename
         $this->rs['id'] = 0;
         $this->rs['serial_number'] = $serial;
         $this->rs['disk_number'] = 0;
@@ -152,17 +152,6 @@ class Smart_stats_model extends \Model {
 
         // Add local config
         configAppendFile(__DIR__ . '/config.php');
-    }
-
-    public function getSmartStats()
-    {
-        $sql = "SELECT COUNT(CASE WHEN overall_health='PASSED' THEN 1 END) AS passed,
-                        COUNT(CASE WHEN overall_health='UNKNOWN!' THEN 1 END) AS unknown,
-                        COUNT(CASE WHEN overall_health='FAILED!' THEN 1 END) AS failed
-                        FROM smart_stats
-                        LEFT JOIN reportdata USING(serial_number)
-                        ".get_machine_group_filter();
-        return current($this->query($sql));
     }
 
     /**

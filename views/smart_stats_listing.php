@@ -1,61 +1,56 @@
 <?php $this->view('partials/head'); ?>
-
 <div class="container">
-
   <div class="row">
-
-  	<div class="col-lg-12">
-
-		  <h3><span data-i18n="smart_stats.reporttitle"></span> <span id="total-count" class='label label-primary'>…</span></h3>
-		  
-		  <table class="table table-striped table-condensed table-bordered">
-		    <thead>
-		      <tr>
-		      	<th data-i18n="listing.computername" data-colname='machine.computer_name'></th>
-		        <th data-i18n="serial" data-colname='reportdata.serial_number'></th>
-		        <th data-i18n="smart_stats.disk_number" data-colname='smart_stats.disk_number'></th>
-		        <th data-i18n="smart_stats.overall_health" data-colname='smart_stats.overall_health'></th>
-		        <th data-i18n="smart_stats.error_count" data-colname='smart_stats.error_count'></th>
-		        <th data-i18n="smart_stats.error_poh" data-colname='smart_stats.error_poh'></th>
-		        <th data-i18n="smart_stats.model_family" data-colname='smart_stats.model_family'></th>
-		        <th data-i18n="smart_stats.device_model" data-colname='smart_stats.device_model'></th>
-		        <th data-i18n="smart_stats.serial_number_hdd" data-colname='smart_stats.serial_number_hdd'></th>
-		        <th data-i18n="smart_stats.firmware_version" data-colname='smart_stats.firmware_version'></th>
-		        <th data-i18n="smart_stats.rotation_rate" data-colname='smart_stats.rotation_rate'></th>
-		        <th data-i18n="smart_stats.sector_size" data-colname='smart_stats.sector_size'></th>
-		        <th data-i18n="smart_stats.ata_version_is" data-colname='smart_stats.ata_version_is'></th>
-		        <th data-i18n="smart_stats.sata_version_is" data-colname='smart_stats.sata_version_is'></th>
-		        <th data-i18n="smart_stats.user_capacity" data-colname='smart_stats.user_capacity'></th>
-		        <th data-i18n="smart_stats.timestamp" data-colname='smart_stats.timestamp'></th>
-		        <th data-i18n="smart_stats.power_on_hours" data-colname='smart_stats.power_on_hours'></th>
-		        <th data-i18n="smart_stats.power_cycle_count" data-colname='smart_stats.power_cycle_count'></th>
-		        <th data-i18n="smart_stats.reallocated_sector_ct" data-colname='smart_stats.reallocated_sector_ct'></th>
-		        <th data-i18n="smart_stats.reported_uncorrect" data-colname='smart_stats.reported_uncorrect'></th>
-		        <th data-i18n="smart_stats.uncorrectable_error_cnt" data-colname='smart_stats.uncorrectable_error_cnt'></th>
-		        <th data-i18n="smart_stats.command_timeout" data-colname='smart_stats.command_timeout'></th>
-		        <th data-i18n="smart_stats.current_pending_sector" data-colname='smart_stats.current_pending_sector'></th>
-		      </tr>
-		  <tbody>
-		    	<tr>
-					<td data-i18n="listing.loading" colspan="23" class="dataTables_empty"></td>
-				</tr>
-		    </tbody>
-		  </table>
+      <div class="col-lg-12">
+          <h3><span data-i18n="smart_stats.reporttitle"></span> <span id="total-count" class='label label-primary'>…</span></h3>
+          <table class="table table-striped table-condensed table-bordered">
+            <thead>
+              <tr>
+                <th data-i18n="listing.computername" data-colname='machine.computer_name'></th>
+                <th data-i18n="serial" data-colname='reportdata.serial_number'></th>
+                <th data-i18n="smart_stats.disk_number" data-colname='smart_stats.disk_number'></th>
+                <th data-i18n="smart_stats.overall_health" data-colname='smart_stats.overall_health'></th>
+                <th data-i18n="smart_stats.error_count" data-colname='smart_stats.error_count'></th>
+                <th data-i18n="smart_stats.error_poh" data-colname='smart_stats.error_poh'></th>
+                <th data-i18n="smart_stats.model_family" data-colname='smart_stats.model_family'></th>
+                <th data-i18n="smart_stats.device_model" data-colname='smart_stats.device_model'></th>
+                <th data-i18n="smart_stats.serial_number_hdd" data-colname='smart_stats.serial_number_hdd'></th>
+                <th data-i18n="smart_stats.firmware_version" data-colname='smart_stats.firmware_version'></th>
+                <th data-i18n="smart_stats.timestamp" data-colname='smart_stats.timestamp'></th>
+                <th data-i18n="smart_stats.power_on_hours" data-colname='smart_stats.power_on_hours'></th>
+                <th data-i18n="smart_stats.power_cycle_count" data-colname='smart_stats.power_cycle_count'></th>
+                <th data-i18n="smart_stats.reallocated_sector_ct" data-colname='smart_stats.reallocated_sector_ct'></th>
+                <th data-i18n="smart_stats.reported_uncorrect" data-colname='smart_stats.reported_uncorrect'></th>
+                <th data-i18n="smart_stats.uncorrectable_error_cnt" data-colname='smart_stats.uncorrectable_error_cnt'></th>
+                <th data-i18n="smart_stats.command_timeout" data-colname='smart_stats.command_timeout'></th>
+                <th data-i18n="smart_stats.current_pending_sector" data-colname='smart_stats.current_pending_sector'></th>
+                <th data-i18n="smart_stats.total_lbas_written" data-colname='smart_stats.total_lbas_written'></th>
+                <th data-i18n="smart_stats.total_lbas_read" data-colname='smart_stats.total_lbas_read'></th>
+                <th data-i18n="smart_stats.rotation_rate" data-colname='smart_stats.rotation_rate'></th>
+                <th data-i18n="smart_stats.sector_size" data-colname='smart_stats.sector_size'></th>
+                <th data-i18n="smart_stats.ata_version_is" data-colname='smart_stats.ata_version_is'></th>
+                <th data-i18n="smart_stats.sata_version_is" data-colname='smart_stats.sata_version_is'></th>
+                <th data-i18n="smart_stats.user_capacity" data-colname='smart_stats.user_capacity'></th>
+              </tr>
+          <tbody>
+                <tr>
+                    <td data-i18n="listing.loading" colspan="25" class="dataTables_empty"></td>
+                </tr>
+            </tbody>
+          </table>
     </div> <!-- /span 12 -->
   </div> <!-- /row -->
 </div>  <!-- /container -->
 
 <script type="text/javascript">
 
-	$(document).on('appUpdate', function(e){
+    $(document).on('appUpdate', function(e){
+        var oTable = $('.table').DataTable();
+        oTable.ajax.reload();
+        return;
+    });    
 
-		var oTable = $('.table').DataTable();
-		oTable.ajax.reload();
-		return;
-
-	});	
-
-	$(document).on('appReady', function(e, lang) {
+    $(document).on('appReady', function(e, lang) {
 
         // Get modifiers from data attribute
         var mySort = [], // Initial sort
@@ -78,7 +73,7 @@
             col++
         });
 
-	    oTable = $('.table').dataTable( {
+        oTable = $('.table').dataTable( {
             ajax: {
                 url: appUrl + '/datatables/data',
                 type: "POST",
@@ -92,7 +87,6 @@
                                 d.columns[index].search.value = '> 0';
                             }
                         });
-
                     }
                 }
             },
@@ -100,20 +94,20 @@
             buttons: mr.dt.buttons,
             order: mySort,
             columnDefs: columnDefs,
-		    createdRow: function( nRow, aData, iDataIndex ) {
-	        	// Update name in first column to link
-	        	var name=$('td:eq(0)', nRow).html();
-	        	if(name == ''){name = "No Name"};
-	        	var sn=$('td:eq(1)', nRow).html();
+            createdRow: function( nRow, aData, iDataIndex ) {
+                // Update name in first column to link
+                var name=$('td:eq(0)', nRow).html();
+                if(name == ''){name = "No Name"};
+                var sn=$('td:eq(1)', nRow).html();
                 var link = mr.getClientDetailLink(name, sn, '#tab_smart_stats-tab');
-	        	$('td:eq(0)', nRow).html(link);
+                $('td:eq(0)', nRow).html(link);
                 
-	        	// Format disk number
-	        	var disknum=$('td:eq(2)', nRow).html();
-	        	$('td:eq(2)', nRow).html("/dev/disk"+disknum)
+                // Format disk number
+                var disknum=$('td:eq(2)', nRow).text();
+                $('td:eq(2)', nRow).text("/dev/disk"+disknum)
 
                 // Format Overall health colors
-	        	var status=$('td:eq(3)', nRow).html();
+                var status=$('td:eq(3)', nRow).text();
                 $('td:eq(3)', nRow).html(function(){
                     if( status == 'PASSED'){
                         return '<span class="label label-success">'+i18n.t(status)+'</span>';
@@ -125,78 +119,108 @@
                 });
 
                 // Format SMART Error Count
-	        	var status=$('td:eq(4)', nRow).html();
+                var status=$('td:eq(4)', nRow).text();
                 if (status != "" && status != 0){
                     $('td:eq(4)', nRow).addClass('danger').html(status)
                 } else {
-                    $('td:eq(4)', nRow).html("")
+                    $('td:eq(4)', nRow).text("")
                 }
                 
                 // Format SMART Power On Hours Error Count
-	        	var status=$('td:eq(5)', nRow).html();
-                if (status != "" && status != 0){
-                    $('td:eq(5)', nRow).addClass('danger').html('<span title="'+Math.round((status/24), 2)+" "+i18n.t('date.day_plural')+'">'+status+'</span>')
+                var status=$('td:eq(5)', nRow).text();
+                if (status != ""){
+                   error_on_days = (status/24)
+                   if (error_on_days > 365){
+                        error_on_days = (error_on_days/365).toFixed(2)+" "+i18n.t('date.year')+" ("+Math.round(error_on_days, 2)+" "+i18n.t('date.day_plural')+")"
+                   } else {
+                        error_on_days = Math.round(error_on_days, 2)+" "+i18n.t('date.day_plural')
+                   }
+                   $('td:eq(5)', nRow).addClass('danger').html('<span title="'+error_on_days+'">'+status+'</span>')
                 } else {
-                    $('td:eq(5)', nRow).html("")
+                    $('td:eq(5)', nRow).text("")
                 }
                 
                 // Format timestamp
-                var timestamp = (($('td:eq(15)', nRow).html()) * 1000);
-                $('td:eq(15)', nRow).html(moment(timestamp).format("YYYY-MM-DD H:mm:ss"))
+                var timestamp = (($('td:eq(10)', nRow).text()) * 1000);
+                $('td:eq(10)', nRow).html(moment(timestamp).format("YYYY-MM-DD H:mm:ss"))
 
-	        	var status=$('td:eq(16)', nRow).html();
+                // Format power on hours
+                var status=$('td:eq(11)', nRow).text();
                 if (status != ""){
-                    $('td:eq(16)', nRow).html('<span title="'+Math.round((status/24), 2)+" "+i18n.t('date.day_plural')+'">'+status+'</span>')
+                   power_on_days = (status/24)
+                   if (power_on_days > 365){
+                        power_on_days = (power_on_days/365).toFixed(2)+" "+i18n.t('date.year')+" ("+Math.round(power_on_days, 2)+" "+i18n.t('date.day_plural')+")"
+                   } else {
+                        power_on_days = Math.round(power_on_days, 2)+" "+i18n.t('date.day_plural')
+                   }
+                   $('td:eq(11)', nRow).html('<span title="'+power_on_days+'">'+status+'</span>')
                 } else {
-                    $('td:eq(16)', nRow).html("")
+                    $('td:eq(11)', nRow).text("")
                 }
-                                                
-	        	var status=$('td:eq(17)', nRow).html();
+                          
+                var status=$('td:eq(12)', nRow).text();
                 if (status != null){
-                    $('td:eq(17)', nRow).html(status)
+                    $('td:eq(12)', nRow).text(status)
                 } else {
-                    $('td:eq(17)', nRow).html("")
-                }
-                                
-	        	var status=$('td:eq(18)', nRow).html();
-                if (status != null){
-                    $('td:eq(18)', nRow).html(status)
-                } else {
-                    $('td:eq(18)', nRow).html("")
-                }
-                                
-	        	var status=$('td:eq(19)', nRow).html();
-                if (status != null){
-                    $('td:eq(19)', nRow).html(status)
-                } else {
-                    $('td:eq(19)', nRow).html("")
+                    $('td:eq(12)', nRow).text("")
                 }
                                 
-	        	var status=$('td:eq(20)', nRow).html();
+                var status=$('td:eq(13)', nRow).text();
                 if (status != null){
-                    $('td:eq(20)', nRow).html(status)
+                    $('td:eq(13)', nRow).text(status)
                 } else {
-                    $('td:eq(20)', nRow).html("")
+                    $('td:eq(13)', nRow).text("")
                 }
                                 
-	        	var status=$('td:eq(21)', nRow).html();
+                var status=$('td:eq(14)', nRow).text();
                 if (status != null){
-                    $('td:eq(21)', nRow).html(status)
+                    $('td:eq(14)', nRow).text(status)
                 } else {
-                    $('td:eq(21)', nRow).html("")
+                    $('td:eq(14)', nRow).text("")
                 }
                                 
-	        	var status=$('td:eq(22)', nRow).html();
+                var status=$('td:eq(15)', nRow).text();
                 if (status != null){
-                    $('td:eq(22)', nRow).html(status)
+                    $('td:eq(15)', nRow).text(status)
                 } else {
-                    $('td:eq(22)', nRow).html("")
+                    $('td:eq(15)', nRow).text("")
+                }
+                                
+                var status=$('td:eq(16)', nRow).text();
+                if (status != null){
+                    $('td:eq(16)', nRow).text(status)
+                } else {
+                    $('td:eq(16)', nRow).text("")
+                }
+                                
+                var status=$('td:eq(17)', nRow).text();
+                if (status != null){
+                    $('td:eq(17)', nRow).text(status)
+                } else {
+                    $('td:eq(17)', nRow).text("")
+                }
+
+                // Format total_lbas_written
+                var status=$('td:eq(18)', nRow).text();
+                if (status != null && status > 1){
+                    $('td:eq(18)', nRow).html(status+' ('+fileSize(status * 512)+')')
+                } else {
+                    $('td:eq(18)', nRow).text("")
+                }
+
+                // Format total_lbas_read
+                var status=$('td:eq(19)', nRow).text();
+                if (status != null && status > 1){
+                    $('td:eq(19)', nRow).html(status+' ('+fileSize(status * 512)+')')
+                } else {
+                    $('td:eq(19)', nRow).text("")
                 }
                 
-		    }
-	    });
+                
+            }
+        });
 
-	});
+    });
 </script>
 
 <?php $this->view('partials/foot'); ?>

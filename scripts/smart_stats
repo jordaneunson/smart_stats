@@ -8,7 +8,7 @@ import sys
 import string
 import re
 
-def get_disks():
+def get_disks(smartctl):
     
     disks = ""
     serials = ""
@@ -40,14 +40,14 @@ def get_disks():
                         if disk_serial not in serials:
                             serials = disk_serial+serials
                             disks = re.sub('[^0-9]','', item.strip())+'\n'+disks
-    
+
     return disks[:-1]
             
-def get_smart_stats():
+def get_smart_stats(smartctl):
 
     smartinfo = []
     
-    for disknum in get_disks().split("\n"):
+    for disknum in get_disks(smartctl).split("\n"):
 
         cmd = [smartctl, '-s','on','-a','/dev/disk'+disknum]
         proc = subprocess.Popen(cmd, shell=False, bufsize=-1,
@@ -340,8 +340,8 @@ def get_smart_stats():
             elif "Avg_Write-Erase_Count" in item:
                 disk['Avg_WriteErase_Count'] = re.sub('[^0-9]','', item.split()[9])
             elif "Free_Fall_Sensor" in item:
-                disk['Free_Fall_Sensor'] = re.sub('[^0-9]','', item.split()[9])      
-        
+                disk['Free_Fall_Sensor'] = re.sub('[^0-9]','', item.split()[9])
+
         smartinfo.append(disk)
         
     return smartinfo
@@ -370,7 +370,8 @@ def main():
         exit(0)
 
     # Get results
-    info = get_smart_stats()
+
+    info = get_smart_stats(smartctl)
     cachedir = '%s/cache' % os.path.dirname(os.path.realpath(__file__))
     
     if (all(info)):
