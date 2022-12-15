@@ -7,7 +7,7 @@ $(document).on('appReady', function(){
         var skipThese = ['id','serial_number','disk_number','temperature_unit'];
 
         // Set the tab badge to blank
-        $('#smart_stats-cnt').html("");
+        $('#smart_stats-cnt').text("");
 
         $.each(data, function(i,d){
 
