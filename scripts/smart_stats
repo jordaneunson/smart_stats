@@ -365,6 +365,8 @@ def main():
         smartctl = '/usr/local/sbin/smartctl'
     elif (os.path.isfile('/usr/local/bin/smartctl')):
         smartctl = '/usr/local/bin/smartctl'
+    elif (os.path.isfile('/opt/homebrew/bin/smartctl')):
+        smartctl = '/opt/homebrew/bin/smartctl'
     else:
         print('Could not find smartctl. Is Smartmontools installed?')
         exit(0)
