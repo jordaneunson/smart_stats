@@ -368,8 +368,18 @@ def main():
     elif (os.path.isfile('/opt/homebrew/bin/smartctl')):
         smartctl = '/opt/homebrew/bin/smartctl'
     else:
-        print('Could not find smartctl. Is Smartmontools installed?')
-        exit(0)
+        # smartctl not found; write dummy plist with error message
+        cachedir = '%s/cache' % os.path.dirname(os.path.realpath(__file__))
+        os.makedirs(cachedir, exist_ok=True)
+        output_plist = os.path.join(cachedir, 'smart_stats.plist')
+        error_info = [{
+            'SerialNumber': '',
+            'DiskNumber': '',
+            'Overall_Health': 'smartctl not found'
+        }]
+        with open(output_plist, 'wb') as fp:
+            plistlib.dump(error_info, fp, fmt=plistlib.FMT_XML)
+        return
 
     # Get results
 

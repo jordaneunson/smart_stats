@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<dict>
+		<key>AvailableSpare</key>
+		<string>100</string>
+		<key>AvailableSpareThreshold</key>
+		<string>99</string>
+		<key>ControllerBusyTime</key>
+		<string>0</string>
+		<key>ControllerID</key>
+		<string>0</string>
+		<key>CriticalWarning</key>
+		<string>0x00</string>
+		<key>DataUnitsRead</key>
+		<string>54,119,586 [27.7 TB]</string>
+		<key>DataUnitsWritten</key>
+		<string>47,864,466 [24.5 TB]</string>
+		<key>DiskNumber</key>
+		<string>0</string>
+		<key>ErrorInformationLogEntries</key>
+		<string>0</string>
+		<key>FirmwareVersion</key>
+		<string>532.120.</string>
+		<key>HostReadCommands</key>
+		<string>1352885990</string>
+		<key>HostWriteCommands</key>
+		<string>860132158</string>
+		<key>IEEEOUIIdentifier</key>
+		<string>0x000000</string>
+		<key>MaximumDataTransferSize</key>
+		<string>256 Pages</string>
+		<key>MediaandDataIntegrityErrors</key>
+		<string>0</string>
+		<key>ModelNumber</key>
+		<string>APPLE SSD AP0512Z</string>
+		<key>NumberofNamespaces</key>
+		<string>3</string>
+		<key>Overall_Health</key>
+		<string>PASSED</string>
+		<key>PCIVendorSubsystemID</key>
+		<string>0x106b</string>
+		<key>Percentage_Used</key>
+		<string>0</string>
+		<key>Power_Cycle_Count</key>
+		<string>457</string>
+		<key>Power_On_Hours</key>
+		<string>727</string>
+		<key>SerialNumber</key>
+		<string>0ba0206181586439</string>
+		<key>Temperature_Celsius</key>
+		<string>28</string>
+		<key>UnsafeShutdowns</key>
+		<string>62</string>
+	</dict>
+</array>
+</plist>
