@@ -374,7 +374,7 @@ def main():
         output_plist = os.path.join(cachedir, 'smart_stats.plist')
         error_info = [{
             'SerialNumber': '',
-            'DiskNumber': '',
+            'DiskNumber': '0',
             'Overall_Health': 'smartctl not found'
         }]
         with open(output_plist, 'wb') as fp:
